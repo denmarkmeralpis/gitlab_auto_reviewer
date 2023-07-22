@@ -57,7 +57,7 @@ erblinter:
   script:
     - bundle exec erblint --lint-all --format json > erblint.json
   after_script:
-    - bundle exec start_erblint_review --file=rubocop.json
+    - bundle exec start_erblint_review --file=erblint.json
   ...
 ...
 ```
