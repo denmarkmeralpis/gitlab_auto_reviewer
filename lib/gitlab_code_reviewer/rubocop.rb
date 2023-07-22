@@ -47,9 +47,10 @@ module GitlabCodeReviewer
       cop_error = offense_hash['message']
       line_number = offense_hash['location']['line']
 
-      @format.gsub(/COP_NAME/, cop_name)
-      @format.gsub(/COP_MESSAGE/, cop_error)
-      @format.gsub(/LINE_NUMBER/, line_number.to_s)
+      @format.gsub!(/COP_NAME/, cop_name)
+      @format.gsub!(/COP_MESSAGE/, cop_error)
+      @format.gsub!(/LINE_NUMBER/, line_number.to_s)
+      @format
     end
 
     def fetch_latest_mr_version
