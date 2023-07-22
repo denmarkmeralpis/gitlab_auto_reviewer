@@ -15,8 +15,8 @@ Gem::Specification.new do |spec|
 
   spec.metadata['allowed_push_host'] = 'https://github.com/denmarkmeralpis/gitlab_code_reviewer'
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata["source_code_uri"] = 'https://github.com/denmarkmeralpis/gitlab_code_reviewer'
-  spec.metadata["changelog_uri"] = 'https://github.com/denmarkmeralpis/gitlab_code_reviewer/changelog'
+  spec.metadata['source_code_uri'] = 'https://github.com/denmarkmeralpis/gitlab_code_reviewer'
+  spec.metadata['changelog_uri'] = 'https://github.com/denmarkmeralpis/gitlab_code_reviewer/changelog'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -25,8 +25,8 @@ Gem::Specification.new do |spec|
       (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
     end
   end
-  spec.bindir = 'exe'
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+
+  spec.executables = %[start_rubocop_review]
   spec.require_paths = ['lib']
   spec.add_development_dependency 'webmock', '~> 3.4'
   spec.add_development_dependency 'byebug'
