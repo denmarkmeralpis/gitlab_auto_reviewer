@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "rubocop_version": "1.0.0",
+    "ruby_engine": "ruby",
+    "ruby_version": "2.5.9",
+    "ruby_patchlevel": "229",
+    "ruby_platform": "x86_64-darwin22"
+  },
+  "files": [
+    { "path": "Guardfile", "offenses": [] },
+    {
+      "path": "app/blueprints/account_blueprint.rb",
+      "offenses": [
+        {
+          "severity": "convention",
+          "message": "Final newline missing.",
+          "cop_name": "Layout/TrailingEmptyLines",
+          "corrected": false,
+          "correctable": true,
+          "location": {
+            "start_line": 17,
+            "start_column": 4,
+            "last_line": 17,
+            "last_column": 3,
+            "length": 0,
+            "line": 17,
+            "column": 4
+          }
+        }
+      ]
+    }
+  ]
+}
