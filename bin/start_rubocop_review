@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "gitlab_code_reviewer"
+require 'optparse'
+
+Options = Struct.new(:file)
+
+class Parser
+  def self.parse(options)
+    args = Options.new("world")
+
+    opt_parser = OptionParser.new do |opts|
+      opts.banner = "Usage: bundle exec start_rubocop_review [options]"
+
+      opts.on("-fFILE", "--file=FILE", "The json file containing the rubocop's output") do |f|
+        args.file = f
+        ::GitlabCodeReviewer::Rubocop.new(file: f).call
+      end
+
+      opts.on("-h", "--help", "Prints this help") do
+        puts opts
+        exit
+      end
+    end
+
+    opt_parser.parse!(options)
+    return args
+  end
+end
+
+options = Parser.parse ARGV

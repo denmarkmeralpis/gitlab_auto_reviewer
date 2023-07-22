@@ -1,15 +1,21 @@
-# GitlabCodeReviewer
+# GitLab Code Reviewer
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gitlab_code_reviewer`. To experiment with that code, run `bin/console` for an interactive prompt.
+Introducing a RubyGem that automates GitLab discussions for code offenses and issues. It provides key details like line numbers and error/warning messages, streamlining the process for reviewers and fostering better collaboration. Simplify code reviews with this powerful addition to GitLab projects!
 
-TODO: Delete this and the text above, and describe your gem
+![](docs/images/rubocop.png)
+
+##### Supports:
+
+- [x] Rubocop
+- [ ] Brakeman
+- [ ] ERB lint
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gitlab_code_reviewer'
+gem 'gitlab_code_reviewer', group: 'test'
 ```
 
 And then execute:
@@ -22,7 +28,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+For rubocop:
+
+1. Make sure your rubocop command passes proper format arguments:
+
+```yaml
+# gitlab-ci.yaml
+...
+rubocop:
+  stage: test
+  ...
+  before_script:
+    - gem install gitlab_code_reviewer
+  script:
+    - bundle exec rubocop --format progress --format json --out rubocop.json
+  after_script:
+    - bundle exec start_rubocop_review --file=rubocop.json
+...
+```
 
 ## Development
 
