@@ -13,7 +13,6 @@ module GitlabCodeReviewer
         )
       end
 
-
       describe '#call' do
         before do
           stub_request(:get, 'https://gitlab.example.com/api/v4/projects/1/merge_requests/1/versions').with(
