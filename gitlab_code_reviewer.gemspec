@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.executables = %[start_rubocop_review]
+  spec.executables = %[start_rubocop_review start_erblint_review]
   spec.require_paths = ['lib']
   spec.add_development_dependency 'webmock', '~> 3.4'
   spec.add_development_dependency 'byebug'

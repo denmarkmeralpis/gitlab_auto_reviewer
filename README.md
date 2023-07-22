@@ -8,7 +8,7 @@ Introducing a RubyGem that automates GitLab discussions for code offenses and is
 
 - [x] Rubocop
 - [ ] Brakeman
-- [ ] ERB lint
+- [x] ERB lint
 
 ## Installation
 
@@ -28,9 +28,9 @@ Or install it yourself as:
 
 ## Usage
 
-For rubocop:
+**For rubocop:**
 
-1. Make sure your rubocop command passes proper format arguments:
+Make sure your rubocop command passes proper format arguments:
 
 ```yaml
 # gitlab-ci.yaml
@@ -42,6 +42,23 @@ rubocop:
     - bundle exec rubocop --format progress --format json --out rubocop.json
   after_script:
     - bundle exec start_rubocop_review --file=rubocop.json
+  ...
+...
+```
+
+**For erblint**
+
+In your `gitlab-ci.yaml`:
+
+```yaml
+erblinter:
+  stage: test
+  ...
+  script:
+    - bundle exec erblint --lint-all --format json > erblint.json
+  after_script:
+    - bundle exec start_erblint_review --file=rubocop.json
+  ...
 ...
 ```
 

@@ -12,11 +12,11 @@ class Parser
     args = Options.new("world")
 
     opt_parser = OptionParser.new do |opts|
-      opts.banner = "Usage: bundle exec start_rubocop_review [options]"
+      opts.banner = "Usage: bundle exec start_erblint_review [options]"
 
-      opts.on("-fFILE", "--file=FILE", "The json file containing the rubocop's output") do |f|
+      opts.on("-fFILE", "--file=FILE", "The json file containing the erblint's output") do |f|
         args.file = f
-        ::GitlabCodeReviewer::Rubocop.new(file: f).call
+        ::GitlabCodeReviewer::Erblint.new(file: f).call
       end
 
       opts.on("-h", "--help", "Prints this help") do
