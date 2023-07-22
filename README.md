@@ -38,8 +38,6 @@ For rubocop:
 rubocop:
   stage: test
   ...
-  before_script:
-    - gem install gitlab_code_reviewer
   script:
     - bundle exec rubocop --format progress --format json --out rubocop.json
   after_script:
